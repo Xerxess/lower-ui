@@ -1,0 +1,41 @@
+// 
+//
+//form 2019/1/21
+//--------------------------------------------------------------
+@import "./common/var";
+@import "mixins/mixins";
+@import "./mixins/utils";
+
+.m(._form());
+
+._form() {
+  &-form {
+    @_formname: @{mainname}-form;
+    &__item {
+      margin-bottom: @form-item-margin-bottom;
+      .utils-clearfix();
+    }
+    &__label {
+      text-align: right;
+      vertical-align: middle;
+      float: left;
+      font-size: 14px;
+      color: #606266;
+      line-height: @form-line-height-base;
+      padding: 0 12px 0 0;
+      box-sizing: border-box;
+      .@{_formname}--label-left & {
+        text-align: left;
+      }
+    }
+    &__content{
+      line-height: @form-line-height-base;
+      position: relative;
+      font-size: 14px;
+      .utils-clearfix();
+    }
+    &__append{
+
+    }
+  }
+}

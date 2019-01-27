@@ -1,0 +1,20 @@
+// 
+//
+//_mixins 2019/1/17
+//--------------------------------------------------------------
+@import "../common/var";
+
+/**
+命名空间
+ */
+.m(@content;...) {
+  .@{mainname} {
+    @content();
+  }
+}
+
+.each(@list,@content) {
+each(@list, {
+  @content();
+});
+}
