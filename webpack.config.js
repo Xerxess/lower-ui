@@ -7,8 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
     entry: {
-        ui:'./index.js',
-        myTransition:'./demo/myTransition.js'
+        index: './index.js'
     },
     output: {
         filename: '[name].js',
@@ -28,28 +27,49 @@ module.exports = {
             {
                 test: /\.less$/,
                 use: [
-                    devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    // devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'postcss-loader',
                     'less-loader'
                 ]
-            },
-            {
+            }, {
                 test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader'
-                ]
+                oneOf: [
+                    {
+                        resourceQuery: /module/, // foo.css?inline
+                        use: [
+                            'style-loader',
+                            {
+                                loader: 'css-loader',
+                                options: {
+                                    modules: true,
+                                    localIdentName: '[local]_[hash:base64:5]'
+                                },
+                            },
+                            'postcss-loader'
+                        ]
+                    }, {
+                        use: [
+                            'style-loader',
+                            'css-loader',
+                            'postcss-loader'
+                        ]
+                    }
+
+                ],
+
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
                 loader: 'file-loader',
                 options: {
-                    name: '[name].[ext]?[hash]'
+                    name: '[name].[ext]?[hash]',
+                    outputPath: 'fonts'
                 }
             },
             {
-                test: /\.(png|jpg|gif|svg)$/,
+                test: /\.(png|gif|jpe?g)$/,
                 loader: 'file-loader',
                 options: {
                     name: '[name].[ext]?[hash]'
@@ -59,8 +79,12 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
+        new CopyWebpackPlugin([
+            { from: 'src/ali_font', to: 'fonts/' }
+        ]),
         new HtmlWebpackPlugin({
-            title: 'Output Management'
+            title: 'Output Page',
+            template: 'index.html'
         }),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
@@ -71,7 +95,8 @@ module.exports = {
     ],
     devServer: {
         contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 9986
+        compress: false,
+        port: 9986,
+        open: true
     }
 };
