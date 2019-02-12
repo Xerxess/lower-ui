@@ -12,9 +12,6 @@ var nextFrame = function (back) {
     });
 }
 
-console.log(nextFrame(function(){
-    alert('abc');
-}));
 
 //获取浏览专属前缀
 var vendor = (function () {

@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "device": "^0.3.9",
-    "raf": "^3.4.1"
+    "raf": "^3.4.1",
+    "scrollreveal": "^4.0.5"
   }
 }
