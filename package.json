@@ -55,7 +55,9 @@
   },
   "dependencies": {
     "device": "^0.3.9",
+    "events": "^3.0.0",
     "raf": "^3.4.1",
-    "scrollreveal": "^4.0.5"
+    "scrollreveal": "^4.0.5",
+    "swiper": "^4.4.6"
   }
 }
