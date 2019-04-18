@@ -7,6 +7,7 @@ import ScrollReveal from 'scrollreveal';
 import { Swiper, Navigation, Pagination, Scrollbar } from 'swiper/dist/js/swiper.esm.js';
 import 'swiper/dist/css/swiper.css';
 import './demo/index.less';
+import './test/test.test.js'
 
 Swiper.use([Navigation, Pagination, Scrollbar]);
 

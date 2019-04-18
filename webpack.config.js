@@ -74,7 +74,12 @@ module.exports = {
                 options: {
                     name: '[name].[ext]?[hash]'
                 }
-            }
+            },
+            {
+                test: /test\.js$/,
+                use: 'mocha-loader',
+                exclude: /node_modules/,
+              }
         ]
     },
     plugins: [
