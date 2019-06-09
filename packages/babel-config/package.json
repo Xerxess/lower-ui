@@ -1,5 +1,5 @@
 {
-  "name": "@yourui/yy-test-babel-config",
+  "name": "@yourui/babel-config",
   "version": "1.0.3",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,8 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": "https://github.com/Xerxess/My-Ui/tree/master/packages/babel-config",
   "author": "",
   "license": "ISC",
-  "gitHead": "28dde6f4b90437520bc62bc61773a47b759b759c"
+  "gitHead": "f864eb180ac517223f307e5b45b968311ea7f813"
 }
