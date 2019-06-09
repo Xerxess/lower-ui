@@ -1,6 +1,6 @@
 {
-  "name": "@yourui/babelconfig",
-  "version": "1.0.5",
+  "name": "@lower-ui/babel-config",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,5 @@
   },
   "repository": "https://github.com/Xerxess/My-Ui/tree/master/packages/babel-config",
   "author": "",
-  "license": "ISC",
-  "gitHead": "a25c6824caecbbe28e3a7328c820c5080c3823a7"
+  "license": "ISC"
 }

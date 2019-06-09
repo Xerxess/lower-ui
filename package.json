@@ -1,7 +1,7 @@
 {
-  "name": "your-ui",
+  "name": "lower-ui",
   "version": "1.0.0",
-  "description": "my-ui",
+  "description": "lower-ui",
   "main": "index.js",
   "scripts": {},
   "repository": "git+https://github.com/Xerxess/My-Ui.git",
