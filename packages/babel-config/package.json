@@ -1,6 +1,6 @@
 {
   "name": "@your-ui/babel-config",
-  "version": "1.0.5",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,5 +11,5 @@
   },
   "author": "",
   "license": "ISC",
-  "gitHead": "b1759f9824150fc203fa2f03cbedc9dcf9baae7c"
+  "gitHead": "78c06fc80100f8305af951e2070efa110b8ea6f6"
 }

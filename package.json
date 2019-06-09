@@ -14,6 +14,9 @@
     "url": "https://github.com/Xerxess/My-Ui/issues"
   },
   "homepage": "https://github.com/Xerxess/My-Ui#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "devDependencies": {
     "lerna": "^3.14.1",
     "lint-staged": "^8.2.0",
