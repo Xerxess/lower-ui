@@ -10,5 +10,6 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^4.0.2"
-  }
+  },
+  "gitHead": "f2c68e70f391b37017400478d57db5f66e4402c5"
 }
