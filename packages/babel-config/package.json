@@ -1,5 +1,5 @@
 {
-  "name": "@yourui/babel-config",
+  "name": "yy-test-babel-config",
   "version": "1.0.1",
   "description": "",
   "main": "index.js",
@@ -11,5 +11,5 @@
   },
   "author": "",
   "license": "ISC",
-  "gitHead": "45fc603d7d3e7a5da5774fb9dde97ac55f552367"
+  "gitHead": "28dde6f4b90437520bc62bc61773a47b759b759c"
 }
