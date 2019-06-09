@@ -11,5 +11,7 @@
   },
   "repository": "https://github.com/Xerxess/My-Ui/tree/master/packages/babel-config",
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+  }
 }

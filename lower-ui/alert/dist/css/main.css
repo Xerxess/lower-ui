@@ -1,0 +1,4 @@
+body p {
+  -webkit-transition: all .5s;
+  -o-transition: all .5s;
+  transition: all .5s; }

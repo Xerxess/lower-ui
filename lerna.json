@@ -1,6 +1,6 @@
 {
   "packages": [
-    "my-ui/*",
+    "lower-ui/*",
     "packages/*"
   ],
   "version": "1.0.5",
