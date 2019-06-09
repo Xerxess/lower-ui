@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "publishConfig": "public",
   "author": "",
   "license": "ISC",
-  "gitHead": "6425a3c8cdd14407285f7f3a992b6c96e1b0f292"
+  "gitHead": "7bf72c5e650d31ff1e63e83a63f18052d2df1c08"
 }

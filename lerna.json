@@ -2,8 +2,7 @@
   "packages": [
     "my-ui/*",
     "packages/*"
-  ],
-  "publishConfig": "public",
+  ],  
   "version": "1.0.3",
   "npmClient": "yarn"
 }
