@@ -1,4 +1,4 @@
-import { render } from 'preact'
+import { render, h } from 'preact'
 
 let name = 'snrkthh'
 const basket = {

@@ -5,6 +5,8 @@ import postcss from "gulp-postcss";
 import sass from "gulp-sass";
 import nsass from "node-sass";
 const rollup = require('rollup');
+import rollupResolve from 'rollup-plugin-node-resolve';
+import rollupBabel from 'rollup-plugin-babel';
 const standard = require('gulp-standard');
 
 sass.compiler = nsass;
@@ -44,7 +46,12 @@ export function css () {
 
 export function out () {
   return rollup.rollup({
-    input: './src/index.js'
+    input: './src/index.js',
+    plugins:[
+      rollupResolve(),
+      rollupBabel({
+        exclude: 'node_modules/**' // only transpile our source code
+      })]
   }).then(bundle => {
     return bundle.write({
       file: './dist/library.js',
