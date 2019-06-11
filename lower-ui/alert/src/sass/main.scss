@@ -1,5 +1,7 @@
-body{
-    p{
-        transition: all .5s;
-    }
+body {
+  background: #ccc url(./img/WX20190611-235613@2x.png);
+  p {
+    border: 1px solid #ccc;
+    transition: all 0.5s;
+  }
 }

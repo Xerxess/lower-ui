@@ -701,6 +701,38 @@
 	  return diff(merge, vnode, {}, false, parent, false);
 	}
 
+	function styleInject(css, ref) {
+	  if ( ref === void 0 ) ref = {};
+	  var insertAt = ref.insertAt;
+
+	  if (!css || typeof document === 'undefined') { return; }
+
+	  var head = document.head || document.getElementsByTagName('head')[0];
+	  var style = document.createElement('style');
+	  style.type = 'text/css';
+
+	  if (insertAt === 'top') {
+	    if (head.firstChild) {
+	      head.insertBefore(style, head.firstChild);
+	    } else {
+	      head.appendChild(style);
+	    }
+	  } else {
+	    head.appendChild(style);
+	  }
+
+	  if (style.styleSheet) {
+	    style.styleSheet.cssText = css;
+	  } else {
+	    style.appendChild(document.createTextNode(css));
+	  }
+	}
+
+	var css = "body {\n  background: #ccc url(./img/WX20190611-235613@2x.png); }\n  body p {\n    border: 1px solid #ccc;\n    -webkit-transition: all 0.5s;\n    -o-transition: all 0.5s;\n    transition: all 0.5s; }\n";
+	styleInject(css);
+
+	var img = "/static/img/5ecf7b4c83a3db0d.png";
+
 	var name = 'snrkthh';
 	var basket = {
 	  count: 1,
@@ -716,7 +748,9 @@
 	});
 	render(h("div", {
 	  id: "foo"
-	}, h("span", null, "Hello, world!"), h("button", {
+	}, h("img", {
+	  src: img
+	}), h("span", null, "Hello, world!"), h("button", {
 	  onClick: function onClick(e) {
 	    return alert('hi!');
 	  }

@@ -7,6 +7,11 @@ import nsass from "node-sass";
 const rollup = require('rollup');
 import rollupResolve from 'rollup-plugin-node-resolve';
 import rollupBabel from 'rollup-plugin-babel';
+import rollupScss from 'rollup-plugin-scss'
+import ollupPostcss from 'rollup-plugin-postcss'
+import rollupUrl from "rollup-plugin-url"
+const postcssUrl = require("postcss-url")
+
 const standard = require('gulp-standard');
 
 sass.compiler = nsass;
@@ -44,10 +49,26 @@ export function css () {
     .pipe(gulp.dest("build/"));
 }
 
+
+const options = {
+  url: 'inline'
+};
 export function out () {
   return rollup.rollup({
     input: './src/index.js',
-    plugins:[
+    plugins: [
+      // rollupScss({
+      //   output: false
+      // }),
+      rollupUrl({
+        limit: 10 * 1024, // inline files < 10k, copy files > 10k
+        fileName: "/static/[dirname][hash][extname]",
+        emitFiles: true, // defaults to true
+        destDir:'./dist/static'
+      }),
+      ollupPostcss({
+        plugins: [require("precss"), require("autoprefixer"),postcssUrl(options)]
+      }),
       rollupResolve(),
       rollupBabel({
         exclude: 'node_modules/**' // only transpile our source code

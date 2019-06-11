@@ -1,4 +1,6 @@
 import { render, h } from 'preact'
+import './sass/main.scss'
+import img from './img/WX20190611-235613@2x.png'
 
 let name = 'snrkthh'
 const basket = {
@@ -21,6 +23,7 @@ promise.then(() => {
 
 render((
   <div id="foo">
+    <img src={img}/>
     <span>Hello, world!</span>
     <button onClick={e => alert('hi!')}>Click Me</button>
   </div>
