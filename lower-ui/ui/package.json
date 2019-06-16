@@ -1,0 +1,14 @@
+{
+  "name": "@lower-ui/ui",
+  "version": "1.0.0",
+  "author": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@lower-ui/bundle":"^1.0.0"
+  },
+  "dependencies": {
+    "preact": "^8.4.2"
+  }
+}

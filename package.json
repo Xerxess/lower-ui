@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "lower-ui",
   "main": "index.js",
+  "private": true,
   "scripts": {},
   "repository": "git+https://github.com/Xerxess/My-Ui.git",
   "keywords": [
@@ -22,5 +23,8 @@
     "lint-staged": "^8.2.0",
     "pre-commit": "^1.2.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "workspaces": [
+    "packages/*","lower-ui/*"
+  ]
 }

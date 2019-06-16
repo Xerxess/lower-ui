@@ -1,0 +1,19 @@
+{
+  "name": "lowerui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build":"node ./bundle.js"
+  },
+  "author": "",
+  "devDependencies": {
+    "@lower-ui/bundle":"^1.0.0"
+  },
+  "dependencies": {
+    "@lower-ui/dialog":"^1.0.0",
+    "@lower-ui/autocomplete":"^1.0.0"
+  }
+}

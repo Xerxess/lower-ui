@@ -1,0 +1,18 @@
+{
+  "name": "@lower-ui/dialog",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "node ./bundle.js"
+  },
+  "author": "",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@lower-ui/bundle":"^1.0.0"
+  },
+  "dependencies": {
+    "preact": "^8.4.2"
+  }
+}
