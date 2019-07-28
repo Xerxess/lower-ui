@@ -2,6 +2,7 @@
 const env = require.resolve('@babel/preset-env');
 const jsx = require.resolve('@babel/plugin-transform-react-jsx');
 const runtime = require.resolve('@babel/plugin-transform-runtime');
+const flow = require.resolve('@babel/plugin-transform-flow-strip-types');
 
 const presets = [
   [env, {
@@ -9,7 +10,7 @@ const presets = [
       browsers: ['last 5 versions', 'ie >= 9'],
     },
     modules: false,
-  },]
+  }]
 ];
 const plugins = [[
   runtime,
@@ -20,7 +21,7 @@ const plugins = [[
     "regenerator": true,
     "useESModules": true
   }
-],["@babel/plugin-transform-react-jsx", { "pragma":"h" }]]
+], ["@babel/plugin-transform-react-jsx", { "pragma": "h" }],[flow]]
 
 
 

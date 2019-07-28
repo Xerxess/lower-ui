@@ -1,0 +1,28 @@
+{
+  "name": "@lower-ui/transition",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "969371501@qq.com <969371501@qq.com>",
+  "homepage": "https://github.com/Xerxess/My-Ui/tree/master/lower-ui/transition#readme",
+  "license": "ISC",
+  "main": "src/index.js",
+  "scripts": {
+    "flow":"node_modules/.bin/flow",
+    "build": "node ./bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xerxess/My-Ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Xerxess/My-Ui/issues"
+  },
+  "dependencies": {
+    "classlist-polyfill": "^1.2.0",
+    "raf": "^3.4.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-flow-strip-types": "^7.4.4",
+    "flow-bin": "^0.104.0"
+  }
+}

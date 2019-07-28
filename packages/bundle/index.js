@@ -1,6 +1,5 @@
+const path = require('path');
 const babelConfig = require('@lower-ui/babel-config')
-const gulp = require('gulp')
-const gulpStandard = require('gulp-standard') // 代码规范
 const rollup = require('rollup')
 const rollupResolve = require('rollup-plugin-node-resolve') // 定位node_modules模块
 const rollupPluginBabel = require('rollup-plugin-babel')
@@ -9,10 +8,11 @@ const rollupUrl = require('rollup-plugin-url')
 const rollupCommonjs = require('rollup-plugin-commonjs') // cmd to es6
 const rollupPluginUMinify = require('rollup-plugin-babel-minify')
 const postcssUrl2 = require("postcss-url")
-const assets = require('postcss-assets')
 const autoprefixer = require('autoprefixer')
-const precss = require('precss')
-const postcssModules = require('postcss-modules')
+
+// process.on('unhandledRejection', error => {
+//   console.error('unhandledRejection', error);
+// });
 
 
 const rimraf = require('rimraf')
@@ -23,6 +23,25 @@ const lowerUI = 'LowerUi'
 
 // 合并所有包的 全局对象名
 const lowerui = 'lowerui'
+
+/**
+ * 根据配制产出css
+ * @param {*} option 
+ */
+const getRollupPostcssConfig = function (option = { sourceMap: false, minimize: false, isOutPut: true, path: 'dist/style/index.css' }) {
+  const _c = {
+    plugins: [
+      autoprefixer({ overrideBrowserslist: ['last 10 version', 'ie >=9'] }),
+      postcssUrl2({ url: 'inline' })],
+    sourceMap: option.sourceMap,
+    minimize: option.minimize
+  }
+  if (option.isOutPut) {
+    _c.extract = option.path // 输出路径
+  }
+
+  return rollupPostcss(_c)
+}
 
 async function bundle (option) {
   rimraf.sync('dist');
@@ -38,22 +57,26 @@ async function bundle (option) {
     input: option.input,
     plugins: [
       rollupResolve(),
-      rollupPostcss(),
-      // rollupUrl({
-      //   limit: 14 * 1024, // inline files < 10k, copy files > 10k
-      //   fileName: "[hash][extname]",
-      //   destDir: './dist/img'
-      // }),
       rollupCommonjs({
-        include: /node_modules/
+        include: /node_modules/,
+        extensions: ['.js'],
       }),
+      getRollupPostcssConfig(),
       rollupPluginBabel({
         runtimeHelpers: true,
         presets: babelConfig.presets,
         plugins: babelConfig.plugins,
         exclude: /node_modules/,// only transpile our source code
         include: option.includeBabel || []
-      })
+      }),
+      rollupUrl({
+        limit: 100 * 1024, // inline files < 10k, copy files > 10k
+        fileName: "[name][extname]",
+        // emitFiles: false,
+        // destDir: './dist/img',
+        include:[/\.(png|gif|jpg|svg)/],
+        // publicPath: 'dist/img/'
+      }),
     ]
   }
 

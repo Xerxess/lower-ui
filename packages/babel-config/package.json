@@ -12,8 +12,14 @@
     "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
-    "@babel/runtime-corejs3": "^7.4.5",
     "@babel/runtime": "^7.4.5",
+    "@babel/runtime-corejs3": "^7.4.5",
+    "classlist-polyfill": "^1.2.0",
+    "raf": "^3.4.1",
     "regenerator-runtime": "^0.13.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-flow-strip-types": "^7.4.4",
+    "flow-bin": "^0.104.0"
   }
 }
