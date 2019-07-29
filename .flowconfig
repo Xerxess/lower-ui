@@ -1,0 +1,16 @@
+[ignore]
+.*/node_modules/.*
+.*/test/.*
+.*/scripts/.*
+.*/examples/.*
+.*/benchmarks/.*
+
+[include]
+../node_modules/
+
+[libs]
+flow
+
+[options]
+module.system.node.resolve_dirname=node_modules
+module.system.node.resolve_dirname=**/node_modules

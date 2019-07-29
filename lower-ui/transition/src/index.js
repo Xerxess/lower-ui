@@ -1,8 +1,9 @@
 
 // @flow
 
-import raf from 'raf';//requestAnimationFrame polyfill
+import raf from 'raf'; //requestAnimationFrame polyfill
 import 'classlist-polyfill';
+
 
 /**
  * 下一帧执行
@@ -16,7 +17,7 @@ const nextFrame = function (back): void {
 
 
 //获取浏览专属前缀
-const vendor = (function (): Boolean {
+const vendor = (function (): any {
 
   var transformNames = {
     webkit: 'webkitTransform',
@@ -25,8 +26,11 @@ const vendor = (function (): Boolean {
     ms: 'msTransform',
     standard: 'transform'
   };
-  for (var key in transformNames) {
-    if (document.body.style[transformNames[key]] !== undefined) {
+  for (var key in transformNames)
+  {
+    const body = document.body;
+    if (body && body.style[transformNames[key]] !== undefined)
+    {
       return key;
     }
   }
@@ -38,11 +42,13 @@ const vendor = (function (): Boolean {
  * @param style css3兼容属性
  * @returns {*}
  */
-const prefixStyle = function (style) {
-  if (vendor === false) {
+const prefixStyle = function (style): any {
+  if (vendor === false)
+  {
     return false;
   }
-  if (vendor === 'standard') {
+  if (vendor === 'standard')
+  {
     return style;
   }
 
@@ -57,7 +63,8 @@ const prefixStyle = function (style) {
  */
 const mergeClassName = function (classVendor, className) {
   let line = '';
-  if (classVendor) {
+  if (classVendor)
+  {
     line = '-'
   }
   return classVendor + line + className;
@@ -69,15 +76,30 @@ const mergeClassName = function (classVendor, className) {
  * @class myTransition
  */
 class transition {
+  target: any
+  OriginalOption: any
+  className: string
+  transitionClass: string
+  time: Number
+  delay: Number
+  entryBeforeCall: Function
+  leaveBeforeCall: Function
+  entryCall: Function
+  leaveCall: Function
+  entryBackCall: Function
+  leaveBackCall: Function
+  classVendor: String | ''
+  clearTransition: any
+  transitionClass: Object
   /**
    * Creates an instance of transition.
    * @param {Object} Option 配制对象
    * @memberof transition
    */
-  constructor(Option: {}): any {
+  constructor(Option: any): any {
     this.OriginalOption = Option;//配制
-    this.className = 'lowerui',
-      this.target = null;
+    this.className = 'lowerui';
+    this.target = {};
     this.time;//过渡时间(s)
     this.delay;//延迟时间(s)
     this.target;//过渡元素
