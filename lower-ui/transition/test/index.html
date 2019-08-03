@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>transition</title>
+    <style>
+      .lowerui-enter {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+      .lowerui-enter-active {
+        transition: all 10s;
+      }
+      .lowerui-enter-to {
+        transform: translate(100px, 100px);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="test">test</div>
+    <span id="btn">点击我试试</span>
+    <script src="../dist/umd/lowerui-transition.js"></script>
+    <script>
+      ;(function() {
+        const _transition = new window.LowerUi.transition({
+          target: document.querySelector('#test')
+        })
+        btn.onclick = function() {
+          console.log('开始')
+          _transition.start()
+        }
+      })()
+    </script>
+  </body>
+</html>

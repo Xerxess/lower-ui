@@ -1,3 +1,4 @@
+/** @jsx h */
 import { render, h } from 'preact'
 
 render((

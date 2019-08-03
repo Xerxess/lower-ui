@@ -4,7 +4,12 @@
   "description": "lower-ui",
   "main": "index.js",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "build":"lerna run build",
+    "fix": "cross-env NODE_ENV=dev standard --fix",
+    "lint": "cross-env NODE_ENV=dev standard",
+    "flow": "flow check"
+  },
   "repository": "git+https://github.com/Xerxess/My-Ui.git",
   "keywords": [
     "ui"
@@ -19,12 +24,43 @@
     "access": "public"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "cross-env": "^5.2.0",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "flow-bin": "^0.104.0",
+    "flow-typed": "^2.6.1",
     "lerna": "^3.14.1",
     "lint-staged": "^8.2.0",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "preact": "^8.5.0",
+    "standard": "^13.1.0",
+    "yorkie": "^2.0.0"
   },
   "dependencies": {},
   "workspaces": [
-    "packages/*","lower-ui/*"
-  ]
+    "packages/*",
+    "lower-ui/*"
+  ],
+  "lint-staged": {
+    "!(*test).js": [
+      "node_modules/.bin/standard --fix",
+      "git add"
+    ]
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "ignore": [
+      "**/dist/",
+      "**/tests/",
+      "**/test/",
+      "**/flow-typed/",
+      "**/demo/",
+      "**/ali_font/"
+    ],
+    "globals": []
+  }
 }

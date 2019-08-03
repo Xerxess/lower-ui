@@ -6,10 +6,10 @@
 .*/benchmarks/.*
 
 [include]
-../node_modules/
+/node_modules/
 
 [libs]
-flow
+flow-typed
 
 [options]
 module.system.node.resolve_dirname=node_modules

@@ -1,9 +1,0 @@
-
-:local(.className) {
-    background: red;
-    color: yellow;
-}
-
-:local(.subClass) {
-    background: blue;
-}

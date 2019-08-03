@@ -10,14 +10,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/plugin-transform-flow-strip-types": "^7.4.4",
-    "@lower-ui/bundle": "^1.0.0",
-    "flow-bin": "^0.104.0"
+    "@lower-ui/bundle": "^1.0.0"
   },
   "dependencies": {
-    "@lower-ui/ui": "^1.0.0",
-    "classlist-polyfill": "^1.2.0",
-    "preact": "^8.4.2",
-    "raf": "^3.4.1"
   }
 }

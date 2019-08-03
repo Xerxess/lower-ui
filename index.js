@@ -1,2 +1,2 @@
 // @flow
-console.log('Hello lower-ui');
+console.log('Hello lower-ui')
