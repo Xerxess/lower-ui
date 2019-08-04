@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build":"lerna run build",
+    "build": "lerna run build",
     "fix": "cross-env NODE_ENV=dev standard --fix",
     "lint": "cross-env NODE_ENV=dev standard",
     "flow": "flow check"
@@ -30,12 +30,11 @@
     "eslint-plugin-react": "^7.14.3",
     "flow-bin": "^0.104.0",
     "flow-typed": "^2.6.1",
+    "husky": "^3.0.2",
     "lerna": "^3.14.1",
     "lint-staged": "^8.2.0",
-    "pre-commit": "^1.2.2",
     "preact": "^8.5.0",
-    "standard": "^13.1.0",
-    "yorkie": "^2.0.0"
+    "standard": "^13.1.0"
   },
   "dependencies": {},
   "workspaces": [
@@ -48,8 +47,10 @@
       "git add"
     ]
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "standard": {
     "parser": "babel-eslint",
