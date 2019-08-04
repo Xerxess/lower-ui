@@ -44,7 +44,7 @@
   ],
   "lint-staged": {
     "!(*test).js": [
-      "node_modules/.bin/standard --fix",
+      "cross-env NODE_ENV=dev standard",
       "git add"
     ]
   },
