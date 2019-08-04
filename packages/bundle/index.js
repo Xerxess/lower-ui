@@ -27,7 +27,12 @@ const lowerui = 'lowerui'
  * 根据配制产出css
  * @param {*} option
  */
-const getRollupPostcssConfig = function (option = { sourceMap: false, minimize: false, isOutPut: true, path: 'dist/style/index.css' }) {
+const getRollupPostcssConfig = function (option = { sourceMap: false, minimize: true, isOutPut: true, path: 'dist/style/index.css' }) {
+  if (option.minimize)
+  {
+    option.sourceMap = true;
+    option.path = 'dist/style/index.min.css'
+  }
   const _c = {
     plugins: [
       autoprefixer({ overrideBrowserslist: ['last 10 version', 'ie >=9'] }),
@@ -44,7 +49,8 @@ const getRollupPostcssConfig = function (option = { sourceMap: false, minimize: 
 }
 
 async function bundle (option) {
-  if(process.argv.includes('-w')){
+  if (process.argv.includes('-w'))
+  {
     watch(option);
     return;
   }
@@ -57,7 +63,7 @@ async function bundle (option) {
   const minifyOptions = {
     comments: true
   }
-  const rollupInOption = function (type) {
+  const rollupInOption = function (type,ismini) {
     return {
       input: option.input,
       plugins: [
@@ -66,7 +72,7 @@ async function bundle (option) {
           include: /node_modules/,
           extensions: ['.js']
         }),
-        getRollupPostcssConfig(),
+        getRollupPostcssConfig(ismini),
         rollupPluginBabel({
           runtimeHelpers: false,
           presets: babelConfig.presets,
@@ -183,24 +189,27 @@ const watch = function (option) {
 
   watcher.on('event', event => {
     // console.log(event);
-    if(event.code==='START'){
+    if (event.code === 'START')
+    {
       console.log('编译开始...');
     }
-    if(event.code==='ERROR'){
-      console.log('ERROR',event);
+    if (event.code === 'ERROR')
+    {
+      console.log('ERROR', event);
     }
 
-    if(event.code==='BUNDLE_START'){
+    if (event.code === 'BUNDLE_START')
+    {
       console.log('编译完成');
     }
 
-      // event.code can be one of:
-      //   START        — the watcher is (re)starting
-      //   BUNDLE_START — building an individual bundle
-      //   BUNDLE_END   — finished building a bundle
-      //   END          — finished building all bundles
-      //   ERROR        — encountered an error while bundling
-      //   FATAL        — encountered an unrecoverable error
+    // event.code can be one of:
+    //   START        — the watcher is (re)starting
+    //   BUNDLE_START — building an individual bundle
+    //   BUNDLE_END   — finished building a bundle
+    //   END          — finished building all bundles
+    //   ERROR        — encountered an error while bundling
+    //   FATAL        — encountered an unrecoverable error
   });
 }
 

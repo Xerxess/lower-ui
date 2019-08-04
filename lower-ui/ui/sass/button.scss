@@ -1,0 +1,8 @@
+@import './variable';
+@import "./mixin";
+
+@include button();
+@include btnCreat(primary, #fff, $color-primary, $color-primary);
+@include btnCreat(info, #fff, $color-info, $color-info);
+@include btnCreat(warning, #fff, $color-warning, $color-warning);
+@include btnCreat(danger, #fff, $color-danger, $color-danger);

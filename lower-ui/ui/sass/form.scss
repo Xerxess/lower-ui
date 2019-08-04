@@ -1,0 +1,24 @@
+@import './_variable';
+@import './mixin';
+
+$fromClassName: '.' + $mainname + '-form';
+
+#{$fromClassName} {
+  &-item {
+    @include clearfix();
+  }
+  &__label {
+    float: left;
+    font-size: 14px;
+    color: #606266;
+    box-sizing: border-box;
+    text-align: left;
+    &--align-left {
+      text-align: right;
+    }
+  }
+  &__value {
+    float: left;
+    position: relative;
+  }
+}

@@ -7,7 +7,8 @@
   "license": "ISC",
   "main": "src/index.js",
   "scripts": {
-    "build": "node ./bundle.js -w"
+    "build": "node ./bundle.js",
+    "watch": "node ./bundle.js -w"
   },
   "repository": "git+https://github.com/Xerxess/My-Ui.git",
   "bugs": {

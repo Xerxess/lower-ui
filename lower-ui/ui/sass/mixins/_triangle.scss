@@ -1,0 +1,29 @@
+//css小三角
+@mixin triangle($width: 5px) {
+  position: relative;
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border: $width dashed transparent;
+  overflow: hidden;
+}
+
+@mixin triangle-top($width: 5px, $color: #eee, $type: solid) {
+  border-bottom: $width $type $color;
+  // top: -$width / 2;
+}
+
+@mixin triangle-bottom($width: 5px, $color: #eee, $type: solid) {
+  border-top: $width $type $color;
+  // top: $width / 2;
+}
+
+@mixin triangle-left($width: 5px, $color: #eee, $type: solid) {
+  border-right: $width $type $color;
+  // left: -$width / 2;
+}
+
+@mixin triangle-right($width: 5px, $color: #eee, $type: solid) {
+  border-left: $width $type $color;
+  // left: $width / 2;
+}

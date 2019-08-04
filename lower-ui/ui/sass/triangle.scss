@@ -1,0 +1,34 @@
+@import './variable';
+@import './mixin';
+
+.#{$mainname}-triangle {
+  &::after {
+    content: '';
+    @include triangle();
+  }
+  & {
+    &--default {
+      &::after {
+        @include triangle-bottom();
+      }
+    }
+
+    &--top {
+      &::after {
+        @include triangle-top();
+      }
+    }
+
+    &--left {
+      &::after {
+        @include triangle-left();
+      }
+    }
+
+    &--right {
+      &::after {
+        @include triangle-right();
+      }
+    }
+  }
+}

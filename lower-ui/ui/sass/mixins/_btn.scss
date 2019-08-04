@@ -1,0 +1,76 @@
+@import '../variable';
+
+@mixin button {
+  .#{$mainname}-btn {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #606266;
+    -webkit-appearance: none;
+    text-align: center;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    font-weight: 500;
+    user-select: none;
+    padding: 9px 20px;
+    font-size: 14px;
+    border-radius: 2px;
+    &--transition {
+      transition: all 0.2s;
+    }
+    & + & {
+      margin-left: 10px;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color-base;
+      border-color: #b7ddfa;
+      background-color: #e7f4fd;
+    }
+    &:active {
+      color: mix(#fff, $color-base, 10%);
+      border-color: mix(#fff, $color-base, 10%);
+      outline: none;
+    }
+
+    &.is-round {
+      border-radius: 20px;
+      padding: 9px 15px;
+    }
+
+    &.is-circle {
+      border-radius: 50%;
+      padding: 9px;
+    }
+  }
+}
+
+@mixin btnCreat($key, $color, $back-color, $border-color) {
+  .#{$mainname}-btn {
+    &--#{$key} {
+      color: $color;
+      background-color: $back-color;
+      border-color: $border-color;
+
+      &:hover,
+      &:focus {
+        background-color: mix(#fff, $back-color, 10%);
+        border-color: mix(#fff, $back-color, 10%);
+        color: $color;
+      }
+
+      &:active {
+        background-color: mix(#fff, $back-color, 10%);
+        border-color: mix(#fff, $back-color, 10%);
+        color: $color;
+        outline: none;
+      }
+    }
+  }
+}

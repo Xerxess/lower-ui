@@ -1,0 +1,16 @@
+@import './variable';
+@import './col';
+@import './form';
+@import './button';
+@import './input';
+@import './triangle';
+
+html {
+  &[#{$mainname+'-ui'}],
+  &#{'.' + $mainname + '-ui'} {
+    body {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

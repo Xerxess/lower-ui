@@ -1,0 +1,33 @@
+//
+//
+//col 2019/1/21
+//--------------------------------------------------------------
+@import './_variable';
+@import './mixins/clearfix';
+
+$classtag: '.' + $mainname + '-col';
+[class*="#{$mainname + '-col-'}"] {
+  float: left;
+}
+#{$mainname}-row {
+  @include clearfix();
+}
+
+#{$classtag} {
+  float: left;
+  box-sizing: border-box;
+}
+
+#{$classtag}-0 {
+  display: none;
+}
+
+@for $i from 0 through 25 {
+  //范围包含 <start> 与 <end>
+  #{$classtag}-#{$i} {
+    width: (100/24) * $i * 1%;
+  }
+  #{$classtag}-offset-#{$i} {
+    margin-left: (100/24) * $i * 1%;
+  }
+}

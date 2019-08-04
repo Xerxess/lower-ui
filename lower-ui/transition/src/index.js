@@ -165,6 +165,8 @@ class transition {
   }
 
   start () {
+    const test_dd = 'd'
+    console.log(test_dd);
     this.entryBefore();
   }
 
