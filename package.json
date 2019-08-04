@@ -44,7 +44,7 @@
   ],
   "lint-staged": {
     "!(*test).js": [
-      "cross-env NODE_ENV=dev standard",
+      "standard --fix",
       "git add"
     ]
   },
@@ -59,7 +59,9 @@
       "**/test/",
       "**/flow-typed/",
       "**/demo/",
-      "**/ali_font/"
+      "**/ali_font/",
+      "**/bundle/",
+      "gulpfile.js"
     ],
     "globals": []
   }

@@ -22,11 +22,9 @@ const vendor = (function (): any {
     ms: 'msTransform',
     standard: 'transform'
   }
-  for (var key in transformNames)
-  {
+  for (var key in transformNames) {
     const body = document.body
-    if (body && body.style[transformNames[key]] !== undefined)
-    {
+    if (body && body.style[transformNames[key]] !== undefined) {
       return key
     }
   }
@@ -39,12 +37,10 @@ const vendor = (function (): any {
  * @returns {*}
  */
 const prefixStyle = function (style: string): any {
-  if (vendor === false)
-  {
+  if (vendor === false) {
     return false
   }
-  if (vendor === 'standard')
-  {
+  if (vendor === 'standard') {
     return style
   }
   return vendor + style.charAt(0).toUpperCase() + style.substr(1)
@@ -57,8 +53,7 @@ const prefixStyle = function (style: string): any {
  */
 const mergeClassName = function (classVendor, className) {
   let line = ''
-  if (classVendor)
-  {
+  if (classVendor) {
     line = '-'
   }
   return classVendor + line + className
@@ -105,7 +100,7 @@ class transition {
    * @param {Object} Option 配制对象
    * @memberof transition
    */
-  constructor(Option: any): any {
+  constructor (Option: any): any {
     this.className = ''
     this.time = Option.time || 0 // 过渡时间(s)
     this.delay = Option.time || 0// 延迟时间(s)
@@ -128,7 +123,7 @@ class transition {
       leaveTo: 'leave-to'// 离开过渡的结束状态
     }// 过渡中的类名
 
-    this.init();
+    this.init()
   }
 
   /**
@@ -137,9 +132,8 @@ class transition {
    * @memberof transition
    */
   init () {
-    if (!this.target instanceof window.HTMLElement)
-    {
-      throw Error('error 过渡元素不存在!');
+    if (!(this.target instanceof window.HTMLElement)) {
+      throw Error('error 过渡元素不存在!')
     }
   }
 
@@ -147,27 +141,24 @@ class transition {
     const that = this
     this.target.classList.add(mergeClassName(this.classVendor, this.transitionClass.enter))
     nextFrame(() => {
-      that.target.classList.remove(mergeClassName(this.classVendor, this.transitionClass.enter));
+      that.target.classList.remove(mergeClassName(this.classVendor, this.transitionClass.enter))
       that.target.classList.add(mergeClassName(this.classVendor, this.transitionClass.enterActive))
       that.target.classList.add(mergeClassName(this.classVendor, this.transitionClass.enterTo))
       that.target.addEventListener('transitionend', () => {
-        that.target.classList.remove(mergeClassName(this.classVendor, this.transitionClass.enterActive));
-        that.target.classList.remove(mergeClassName(this.classVendor, this.transitionClass.enterTo));
-      });
+        that.target.classList.remove(mergeClassName(this.classVendor, this.transitionClass.enterActive))
+        that.target.classList.remove(mergeClassName(this.classVendor, this.transitionClass.enterTo))
+      })
       that.entry()
     })
   }
 
   entry () {
-    alert('abc');
-
+    prefixStyle('')
     // this.target.classList.add(mergeClassName(this.transitionClass, this.className))
   }
 
   start () {
-    const test_dd = 'd'
-    console.log(test_dd);
-    this.entryBefore();
+    this.entryBefore()
   }
 
   enterActive () { }
